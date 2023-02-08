@@ -26,6 +26,10 @@
 		419132402993DFEA00E25766 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4191323F2993DFEA00E25766 /* AppConstants.swift */; };
 		419132422993E5BA00E25766 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419132412993E5BA00E25766 /* ActivityIndicator.swift */; };
 		419132442993E6BB00E25766 /* ProductDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419132432993E6BB00E25766 /* ProductDetailsView.swift */; };
+		419132472993E7B700E25766 /* ProductDetailsReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419132462993E7B700E25766 /* ProductDetailsReducer.swift */; };
+		419132492993E7C200E25766 /* ProductDetailsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419132482993E7C200E25766 /* ProductDetailsStore.swift */; };
+		4191324B2993EBC600E25766 /* ApiProviderExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4191324A2993EBC600E25766 /* ApiProviderExt.swift */; };
+		4191324D2993FC9600E25766 /* XCTestExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4191324C2993FC9600E25766 /* XCTestExt.swift */; };
 		41A15D1A2993AFC9001DFDCE /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A15D192993AFC9001DFDCE /* MainView.swift */; };
 		41A15D1C2993AFC9001DFDCE /* AppReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A15D1B2993AFC9001DFDCE /* AppReducer.swift */; };
 		41A15D1E2993AFCA001DFDCE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 41A15D1D2993AFCA001DFDCE /* Assets.xcassets */; };
@@ -69,6 +73,10 @@
 		4191323F2993DFEA00E25766 /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 		419132412993E5BA00E25766 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		419132432993E6BB00E25766 /* ProductDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsView.swift; sourceTree = "<group>"; };
+		419132462993E7B700E25766 /* ProductDetailsReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsReducer.swift; sourceTree = "<group>"; };
+		419132482993E7C200E25766 /* ProductDetailsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailsStore.swift; sourceTree = "<group>"; };
+		4191324A2993EBC600E25766 /* ApiProviderExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiProviderExt.swift; sourceTree = "<group>"; };
+		4191324C2993FC9600E25766 /* XCTestExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCTestExt.swift; sourceTree = "<group>"; };
 		41A15D162993AFC9001DFDCE /* Check24Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Check24Test.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		41A15D192993AFC9001DFDCE /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		41A15D1B2993AFC9001DFDCE /* AppReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppReducer.swift; sourceTree = "<group>"; };
@@ -139,6 +147,7 @@
 				4191323D2993DEE100E25766 /* Cancellable.swift */,
 				4191323F2993DFEA00E25766 /* AppConstants.swift */,
 				419132412993E5BA00E25766 /* ActivityIndicator.swift */,
+				4191324A2993EBC600E25766 /* ApiProviderExt.swift */,
 			);
 			name = Shared;
 			path = AppView/Shared;
@@ -148,8 +157,18 @@
 			isa = PBXGroup;
 			children = (
 				419132432993E6BB00E25766 /* ProductDetailsView.swift */,
+				419132462993E7B700E25766 /* ProductDetailsReducer.swift */,
+				419132482993E7C200E25766 /* ProductDetailsStore.swift */,
 			);
 			path = ProductDetails;
+			sourceTree = "<group>";
+		};
+		4191324E2993FCD600E25766 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				4191324C2993FC9600E25766 /* XCTestExt.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		41A15D0D2993AFC9001DFDCE = {
@@ -195,6 +214,7 @@
 				41A15D2A2993AFCA001DFDCE /* Check24TestTests.swift */,
 				414AD5B22993B805003C2AF9 /* ProductApiTests.swift */,
 				414AD5B42993B823003C2AF9 /* TestConstants.swift */,
+				4191324E2993FCD600E25766 /* Extensions */,
 			);
 			path = Check24TestTests;
 			sourceTree = "<group>";
@@ -364,6 +384,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				419132472993E7B700E25766 /* ProductDetailsReducer.swift in Sources */,
 				41BB6EE02993B11600B11B4C /* ProductResponse.swift in Sources */,
 				41BB6EE22993B17000B11B4C /* Product.swift in Sources */,
 				4191322E2993D53600E25766 /* ProductListView.swift in Sources */,
@@ -371,12 +392,14 @@
 				4191321F2993BA8C00E25766 /* ProductStore.swift in Sources */,
 				41A15D1A2993AFC9001DFDCE /* MainView.swift in Sources */,
 				419132372993DC0F00E25766 /* DoubleExt.swift in Sources */,
+				419132492993E7C200E25766 /* ProductDetailsStore.swift in Sources */,
 				4191321D2993BA2F00E25766 /* ProductView.swift in Sources */,
 				4191323C2993DE7300E25766 /* ProductListReducer.swift in Sources */,
 				419132392993DD6900E25766 /* AppStore.swift in Sources */,
 				4191323E2993DEE100E25766 /* Cancellable.swift in Sources */,
 				4191322B2993D4FE00E25766 /* AppEnv.swift in Sources */,
 				419132292993D4F700E25766 /* AppView.swift in Sources */,
+				4191324B2993EBC600E25766 /* ApiProviderExt.swift in Sources */,
 				419132232993BBA800E25766 /* ImageViewStore.swift in Sources */,
 				419132422993E5BA00E25766 /* ActivityIndicator.swift in Sources */,
 				419132222993BBA800E25766 /* ImageView.swift in Sources */,
@@ -395,6 +418,7 @@
 			files = (
 				414AD5B32993B805003C2AF9 /* ProductApiTests.swift in Sources */,
 				414AD5B52993B823003C2AF9 /* TestConstants.swift in Sources */,
+				4191324D2993FC9600E25766 /* XCTestExt.swift in Sources */,
 				41A15D2B2993AFCA001DFDCE /* Check24TestTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

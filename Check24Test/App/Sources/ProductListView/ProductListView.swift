@@ -39,12 +39,32 @@ struct ProductListView: View {
                                          availability: product.available,
                                          price: product.priceDecs,
                                          rating: product.ratingDecs,
-                                         image: product.imageUrl)
+                                         image: product.imageUrl), actionHandler: { _ in
+
+                    viewStore.send(.productSelected(product: product))
+                }
                 )
               }
             }
+
+            NavigationLink(
+              destination: IfLetStore(
+                store.scope(
+                    state: \.productDetailsState,
+                    action: ProductListAction.productDetails(action:)
+                ),
+                then: ProductDetailsView.init(store:)
+            ),
+              isActive: viewStore.binding(
+                get: { $0.productDetailsState != nil},
+                send: ProductListAction.setProductDetails(isPresented:)
+              ),
+              label: {
+                EmptyView()
+              })
             .padding(.top, 5)
           }
+          
         }
       }
       .padding()

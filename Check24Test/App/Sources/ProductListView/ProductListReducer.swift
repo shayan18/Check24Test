@@ -37,6 +37,21 @@ let productListReducer = AnyReducer<ProductListState, ProductListAction, AppEnv>
 
     case let .setProgressIndicator(isLoading):
       state.shouldShowProgressIndicator = isLoading
+
+    case let .setProductDetails(isPresented):
+      state.productDetailsState = isPresented ? .init() : nil
+
+    case .productDetails(action: .backPressed):
+      state.selectedProduct = nil
+      state.productDetailsState = nil
+
+    case let .productSelected(product):
+      state.selectedProduct = nil
+      state.productDetailsState = .init(product: product)
+
+
+    case let .productDetails(action):
+      break
     }
     return .none
 }
