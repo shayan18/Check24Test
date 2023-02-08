@@ -5,6 +5,8 @@
 //  Created by Bewerber on 08.02.23.
 //
 
+import Foundation
+
 /// The Product response object.
 struct Product: Decodable, Equatable {
     let id: Int
@@ -18,6 +20,18 @@ struct Product: Decodable, Equatable {
     let description, longDescription: String
     let rating: Double
     let price: Price
+
+  var imageUrl: URL? {
+      URL(string: imageURL)
+  }
+
+  var ratingDecs: String {
+     "Rating: \(rating)"
+  }
+
+  var priceDecs: String {
+    "Price: \(price.value.toString() + " \(price.currency.rawValue)")"
+  }
 }
 
 // MARK: - Header

@@ -12,21 +12,23 @@ struct ProductView: View {
 
     var body: some View {
         VStack(alignment: .leading) {
-          Text(state.title)
-          Text(state.subTitle)
             HStack(spacing: 5) {
               if state.availability {
                 ImageView(state: ImageViewState(url: state.image))
               }
                 VStack(alignment: .leading, spacing: 5) {
                     Text(state.name)
+                    .bold()
                     Text(state.description)
+                    .foregroundColor(.gray)
+                    .font(.footnote)
                   HStack {
                     Text(state.price)
-                        .lineLimit(1)
+                      .font(.footnote)
+                      .bold()
                     Spacer()
                     Text(state.rating)
-                        .lineLimit(1)
+                      .font(.footnote)
                   }
                 }
               if !state.availability {
@@ -34,17 +36,14 @@ struct ProductView: View {
               }
             }
             .padding()
-            .border(.black)
+            .border(.gray)
         }
-        .padding()
     }
 }
 
 #if DEBUG
 struct ProductView_Previews: PreviewProvider {
     static let state = ProductState(
-      title: "Test",
-      subTitle: "test123",
       name: "abc",
       description: "testingtestingtestingtestingtestingtestingtestingtestingtestingtesting",
       availability: true,

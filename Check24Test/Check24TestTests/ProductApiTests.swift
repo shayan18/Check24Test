@@ -17,7 +17,7 @@ final class ProductApiTests: XCTestCase {
         let productResponseBody =
         try TestConstants.testApiProvider.performRequestAndWait(
           on: .getProducts,
-            decodeBodyTo: ApiCollectionResponse<Product>.self
+            decodeBodyTo: ProductResponse.self
         )
         .get()
 

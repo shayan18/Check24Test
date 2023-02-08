@@ -8,14 +8,12 @@
 import Foundation
 
 struct ProductState {
-    var title: String
-    var subTitle: String
     var name: String
     var description: String
     var availability: Bool
     var price: String
     var rating: String
-    var image: URL
+    var image: URL?
 }
 
 enum ProductAction {
